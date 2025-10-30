@@ -1,0 +1,45 @@
+enable
+configure terminal
+
+vlan 10
+name Admin
+exit
+vlan 20
+name Sales
+exit
+vlan 30
+name Guest
+exit
+
+interface fastEthernet0/1
+switchport mode access
+switchport access vlan 10
+exit
+interface fastEthernet0/2
+switchport mode access
+switchport access vlan 10
+exit
+interface fastEthernet0/3
+switchport mode access
+switchport access vlan 20
+exit
+interface fastEthernet0/4
+switchport mode access
+switchport access vlan 20
+exit
+interface fastEthernet0/5
+switchport mode access
+switchport access vlan 30
+exit
+interface fastEthernet0/6
+switchport mode access
+switchport access vlan 30
+exit
+
+interface fastEthernet0/24
+switchport trunk encapsulation dot1q
+switchport mode trunk
+exit
+
+end
+write memory
